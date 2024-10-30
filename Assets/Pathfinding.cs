@@ -114,4 +114,13 @@ public class Pathfinding : MonoBehaviour
         path.Add(start);
         path.Reverse();
     }
+
+    //enhancements scripts
+    void GenerateRandomGrid(int width, int height, float obstacleProbability) {
+        
+    }
+
+    public void AddObstacle(Vector2Int position) {
+
+    }
 }
