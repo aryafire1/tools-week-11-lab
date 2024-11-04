@@ -247,6 +247,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   start: {x: 0, y: 0}
   goal: {x: 4, y: 3}
+  width: 5
+  height: 5
+  obstacleProbability: 0.3
 --- !u!4 &876804593
 Transform:
   m_ObjectHideFlags: 0
@@ -347,13 +350,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.51674867, y: -0, z: -0, w: 0.8561372}
-  m_LocalPosition: {x: 3.08, y: 7.51, z: -1.44}
+  m_LocalRotation: {x: 0.7181324, y: -0, z: -0, w: 0.6959065}
+  m_LocalPosition: {x: 3.08, y: 28.95, z: 1.83}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 62.229, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 91.800995, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

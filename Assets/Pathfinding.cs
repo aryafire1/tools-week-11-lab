@@ -1,3 +1,4 @@
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,6 +9,9 @@ public class Pathfinding : MonoBehaviour
     public Vector2Int goal;
     private Vector2Int next;
     private Vector2Int current;
+    public int width = 5;
+    public int height = 5;
+    public float obstacleProbability = 0.3f;
 
     private Vector2Int[] directions = new Vector2Int[]
     {
@@ -17,14 +21,7 @@ public class Pathfinding : MonoBehaviour
         new Vector2Int(0, -1)
     };
 
-    private int[,] grid = new int[,]
-    {
-        { 0, 1, 0, 0, 0 },
-        { 0, 1, 0, 1, 0 },
-        { 0, 0, 0, 1, 0 },
-        { 0, 1, 1, 1, 0 },
-        { 0, 0, 0, 0, 0 }
-    };
+    private int[,] grid;
 
     private void Start()
     {
@@ -34,6 +31,7 @@ public class Pathfinding : MonoBehaviour
     //grid stuff
     private void OnDrawGizmos()
     {
+        grid = GenerateRandomGrid(width,height,obstacleProbability);
         float cellSize = 1f;
 
         // Draw grid cells
@@ -116,11 +114,28 @@ public class Pathfinding : MonoBehaviour
     }
 
     //enhancements scripts
-    void GenerateRandomGrid(int width, int height, float obstacleProbability) {
-        
+    public int[,] GenerateRandomGrid(int width, int height, float obstacleProbability) {
+        grid = new int[width, height];
+        for(int i = 0; i < width; i++)
+        {
+            for(int j = 0; j < height; j++)
+            {
+                float temp = Random.Range(0.0f,1.0f);
+                Debug.Log(temp);
+                if(temp>obstacleProbability)
+                {
+                    grid[i,j] = 0;
+                }
+                else
+                {
+                    grid[i,j] = 1;
+                }
+            }
+        }
+        return grid;  
     }
 
     public void AddObstacle(Vector2Int position) {
-
+        grid[position.x, position.y] = 1;
     }
 }
